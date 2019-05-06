@@ -1,0 +1,23 @@
+{
+  "name": "Constructor-Word-Game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsmaelRvra130/Constructor-Word-Game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IsmaelRvra130/Constructor-Word-Game/issues"
+  },
+  "homepage": "https://github.com/IsmaelRvra130/Constructor-Word-Game#readme",
+  "dependencies": {
+    "inquirer": "^6.3.1"
+  }
+}

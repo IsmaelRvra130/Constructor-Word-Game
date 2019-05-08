@@ -1,4 +1,4 @@
-var Letter = require("./letter.js");
+var Letter = require("./letters.js");
 
 function Word(answer) {
   //Letter objects array
@@ -14,7 +14,7 @@ function Word(answer) {
     for (var i = 0; i < this.objArray.length; i++) {
       answerLog += this.objArray[i] + " ";
     }
-    console.log(answerLog + "\n*****************8\n");
+    console.log(answerLog + "\n..................................\n");
   };
 
   this.userGuess = function(input) {

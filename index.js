@@ -185,4 +185,35 @@ function theLogic() {
   }
 }
 
+//restart function **NOT WORKING CORRECTLY**
+function restart() {
+    inquirer
+      .prompt([
+        {
+            //asks if you would like to play again or quit.
+          type: "list",
+          message: "Would you like to:",
+          choices: ["Try Again", "Quit"],
+          name: "restart"
+        }
+      ])
+  
+      //if pick to restart, this sets everthing back to 0.
+      .then(function(input) {
+        if (input.restart === "Try Again") {
+          requireNewWord = true;
+          incorrectLetters = [];
+          correctLetters = [];
+          guessesLeft = 10;
+          theLogic();
+        } else {
+          return;
+        }
+      });
+  }
+
+
+  
+  //calling the logic function.
+  theLogic();
   

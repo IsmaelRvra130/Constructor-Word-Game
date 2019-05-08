@@ -3,7 +3,7 @@
 <h1>Advanced JavaScript Assignment using NodeJS.</h1><br>
 
 <h2>Demonstration:</h2><br>
-<img src =" ">
+<img src ="constructor guess game.gif">
 
 <h3>Instructions</h3>
 
@@ -20,7 +20,7 @@ The completed game should meet the following criteria:
         <br>
         <br>
 
-<li><b>Word.js:</b>Contains a constructor, Word that depends on the Letter constructor. This is used to create an object representing the current word the user is attempting to guess. That means the constructor should define:</li><br>
+<li><b>Word.js:</b>Contains a constructor, Word that depends on the Letter constructor. This is used to create an object representing the current word the user is attempting to guess. That means the constructor should define:</li>
 
 <li>An array of new Letter objects representing the letters of the underlying word</li>
 <li>A function that returns a string representing the word. This should call the function on each letter object (the first function defined in Letter.js) that displays the character or an underscore and concatenate those together.</li>
@@ -28,11 +28,11 @@ The completed game should meet the following criteria:
 <br>
 <br>
 
-<li><b>index.js</b>The file containing the logic for the course of the game, which depends on Word.js and:</li><br>
+<li><b>index.js</b>The file containing the logic for the course of the game, which depends on Word.js and:</li>
 
 <li>Randomly selects a word and uses the Word constructor to store it</li>
 <li>Prompts the user for each guess and keeps track of the user's remaining guesses</li>
-
+<br>
 3.Letter.js should not require any other files.<br>
 4.Word.js should only require Letter.js.
 

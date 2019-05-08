@@ -80,6 +80,109 @@ function theLogic() {
 
   //checking letters guessed is correct from object.
   var wordComplete = [];
+
+  //checking throught he array
   computerWord.objArray.forEach(completeCheck);
+
+  // prompt to began game.
+  if (wordComplete.includes(false)) {
+    inquirer
+      .prompt([
+        {
+            //prompt to guess the NFL team name
+          type: "input",
+          message: "Guess this NFL football team name!!",
+          name: "userinput"
+        }
+      ])
+      .then(function(input) {
+        if (
+            //if no letters are correct.
+          !letterArray.includes(input.userinput) ||
+          input.userinput.length > 1
+        ) {
+            //prompts that you suck and to try again.
+          console.log("\nPathetic, try again tough guy!\n");
+          theLogic();
+        } else {
+          if (
+              //true or false if user input choose index of the name already.
+            incorrectLetters.includes(input.userinput) ||
+            correctLetters.includes(input.userinput) ||
+            input.userinput === ""
+          ) {
+              //prompt if already choosen.
+            console.log("\nAlready Guessed this letter, dummy!\n");
+            theLogic();
+          } else {
+
+            // Checks if guess is correct
+            var wordCheckArray = [];
+
+            computerWord.userGuess(input.userinput);
+
+            // Checks if guess is correct or incorrect.
+            computerWord.objArray.forEach(wordCheck);
+
+            
+            if (wordCheckArray.join("") === wordComplete.join("")) {
+                //prompt that letter picked was incorrect
+              console.log("\nWrong choice!\n");
+
+                //adding wronge letters picked into array.
+              incorrectLetters.push(input.userinput);
+
+              //dropping the guesses left counter
+              guessesLeft--;
+
+            } else {
+                //prompt if letter picked was correct.
+              console.log("\nYou got it!!\n");
+
+              //adding the right letters picked into the array.
+
+              correctLetters.push(input.userinput);
+            }
+
+            computerWord.log();
+
+            // Print guesses left
+            console.log("Guesses Left: " + guessesLeft + "\n");
+
+            // Print letters guessed already
+            console.log(
+              "Letters Guessed: " + incorrectLetters.join(" ") + "\n"
+            );
+
+            // if guesses left are none
+            if (guessesLeft > 0) {
+              // Call logic function
+              theLogic();
+            } else {
+                //then prompt that you lost
+              console.log("Apperently you dont know many football team names! Try again!\n");
+
+                //call restart function
+              restart();
+            }
+            //checking if guessed array is correct
+            function wordCheck(key) {
+              wordCheckArray.push(key.guessed);
+            }
+          }
+        }
+      });
+  } else {
+      //prompt that you won
+    console.log("GOOD JOB, YOU WIN!\n");
+    
+    //calling restart function after the win.
+    restart();
+  }
+
+  function completeCheck(key) {
+    wordComplete.push(key.guessed);
+  }
+}
 
   
